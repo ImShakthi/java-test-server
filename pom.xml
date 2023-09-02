@@ -19,13 +19,43 @@
         <java.version>17</java.version>
         <junit.jupiter.version>5.9.2</junit.jupiter.version>
         <spring.boot.starter.version>3.1.3</spring.boot.starter.version>
+        <groovy-all.version>4.0.14</groovy-all.version>
+        <spock-core.version>2.4-M1-groovy-4.0</spock-core.version>
+        <netflix-dgs-graphql.version>7.5.1</netflix-dgs-graphql.version>
+        <lombok.version>1.18.24</lombok.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.netflix.graphql.dgs</groupId>
+                <artifactId>graphql-dgs-platform-dependencies</artifactId>
+                <!-- The DGS BOM/platform dependency. This is the only place you set version of DGS -->
+                <version>${netflix-dgs-graphql.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.starter.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.netflix.graphql.dgs</groupId>
+            <artifactId>graphql-dgs-spring-boot-starter</artifactId>
+            <version>${netflix-dgs-graphql.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.netflix.graphql.dgs/graphql-dgs -->
+        <dependency>
+            <groupId>com.netflix.graphql.dgs</groupId>
+            <artifactId>graphql-dgs</artifactId>
+            <version>${netflix-dgs-graphql.version}</version>
         </dependency>
 
         <dependency>
@@ -60,26 +90,24 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
-            <version>2.4-M1-groovy-4.0</version>
+            <version>${spock-core.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.apache.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>4.0.13</version>
+            <version>${groovy-all.version}</version>
             <type>pom</type>
             <scope>test</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>

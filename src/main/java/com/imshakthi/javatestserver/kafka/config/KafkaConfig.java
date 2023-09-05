@@ -9,4 +9,7 @@ import org.springframework.stereotype.Component;
 public class KafkaConfig {
     @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
+
+    @Value("${spring.kafka.topics.message-writer}")
+    private String messageWriterTopicName;
 }

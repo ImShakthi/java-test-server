@@ -23,6 +23,7 @@
         <spock-core.version>2.4-M1-groovy-4.0</spock-core.version>
         <netflix-dgs-graphql.version>7.5.1</netflix-dgs-graphql.version>
         <lombok.version>1.18.24</lombok.version>
+        <spring-kafka.version>3.0.11</spring-kafka.version>
     </properties>
 
     <dependencyManagement>
@@ -107,6 +108,13 @@
             <version>${groovy-all.version}</version>
             <type>pom</type>
             <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.kafka/spring-kafka -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+            <version>${spring-kafka.version}</version>
         </dependency>
     </dependencies>
 

@@ -7,12 +7,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.imshakthi.javatestserver.constant.Messaging.GROUP_ID_SAMPLE_001;
+import static com.imshakthi.javatestserver.constant.Messaging.TOPIC_NAME_SAMPLE_001;
+
 @Component
 public class SampleConsumer {
-
     private final static Logger LOGGER = LoggerFactory.getLogger(SampleConsumer.class);
 
-    @KafkaListener(topics = "sample-topic-001" , groupId="test")
+    @KafkaListener(topics = TOPIC_NAME_SAMPLE_001, groupId = GROUP_ID_SAMPLE_001)
     public void listenGroupFoo(String message) {
         try {
             LOGGER.info("timer started...");

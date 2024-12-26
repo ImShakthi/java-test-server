@@ -21,7 +21,7 @@
         <spring.boot.starter.version>3.2.1</spring.boot.starter.version>
         <groovy-all.version>4.0.14</groovy-all.version>
         <spock-core.version>2.4-M1-groovy-4.0</spock-core.version>
-        <netflix-dgs-graphql.version>8.4.0</netflix-dgs-graphql.version>
+        <netflix-dgs-graphql.version>9.1.2</netflix-dgs-graphql.version>
         <lombok.version>1.18.24</lombok.version>
         <spring-kafka.version>3.0.11</spring-kafka.version>
     </properties>

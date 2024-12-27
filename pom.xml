@@ -17,13 +17,14 @@
 
     <properties>
         <java.version>17</java.version>
-        <junit.jupiter.version>5.9.2</junit.jupiter.version>
+        <junit.jupiter.version>5.11.4</junit.jupiter.version>
         <spring.boot.starter.version>3.2.1</spring.boot.starter.version>
         <groovy-all.version>4.0.14</groovy-all.version>
         <spock-core.version>2.4-M1-groovy-4.0</spock-core.version>
         <netflix-dgs-graphql.version>9.1.2</netflix-dgs-graphql.version>
         <lombok.version>1.18.24</lombok.version>
         <spring-kafka.version>3.0.11</spring-kafka.version>
+        <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -71,6 +72,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -83,6 +92,12 @@
             <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${maven-surefire-plugin.version}</version>
+        </dependency>
+
 
         <!-- Lombok -->
         <dependency>
@@ -122,6 +137,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <release>${java.version}</release>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>

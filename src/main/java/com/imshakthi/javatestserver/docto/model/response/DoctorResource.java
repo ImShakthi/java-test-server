@@ -1,3 +1,4 @@
 package com.imshakthi.javatestserver.docto.model.response;
 
-public record DoctorResource(String firstName, String lastName) {}
+public record DoctorResource(
+    String id, String firstName, String lastName, String startTime, String endTime) {}

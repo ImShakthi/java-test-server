@@ -29,4 +29,10 @@ public class Doctor implements Serializable {
 
   @Column(name = "last_name", nullable = false)
   private String lastName;
+
+  @Column(name = "start_time", nullable = false)
+  private String startTime;
+
+  @Column(name = "end_time", nullable = false)
+  private String endTime;
 }

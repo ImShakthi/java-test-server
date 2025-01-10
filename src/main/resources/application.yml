@@ -2,7 +2,18 @@ server:
   port: 8081
 
 spring:
+  liquibase:
+    enabled: true
+    drop-first: false
+    change-log: classpath:db/changelog/db.changelog-master.xml
+    default-schema: public
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
   kafka:
+    enabled: false
     bootstrap-servers: "localhost:9092"
     topics:
       message-writer: "sample-topic-001"

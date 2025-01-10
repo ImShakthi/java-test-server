@@ -17,16 +17,19 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "doctors")
-public class Doctor implements Serializable {
+@Table(name = "openings")
+public class Opening implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Long id;
 
-  @Column(name = "first_name", nullable = false)
-  private String firstName;
+  @Column(name = "doctor_id", nullable = false)
+  private Long doctorId;
 
-  @Column(name = "last_name", nullable = false)
-  private String lastName;
+  @Column(name = "start_time", nullable = false)
+  private String startTime;
+
+  @Column(name = "end_time", nullable = false)
+  private String endTime;
 }

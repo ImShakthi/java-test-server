@@ -25,8 +25,6 @@ public class DoctorController {
 
   @GetMapping("/doctors")
   public List<DoctorResource> getDoctors() {
-    final var doctors = doctorService.getDoctors();
-    doctors.forEach(doctor -> log.info("Doctor: {}", doctor.endTime()));
-    return doctorMapper.toDoctorResource(doctors);
+    return doctorMapper.toDoctorResource(doctorService.getDoctors());
   }
 }

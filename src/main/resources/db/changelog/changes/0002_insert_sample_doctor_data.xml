@@ -5,9 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="0002_insert_sample_doctor_data" author="sakthivel balasubramaniam">
-        <insert tableName="doctor">
+        <insert tableName="doctors">
             <column name="first_name" value="d_first_name"/>
             <column name="last_name" value="d_last_name"/>
+        </insert>
+
+        <insert tableName="openings">
+            <column name="doctor_id" value="1"/>
             <column name="start_time" value="09:00"/>
             <column name="end_time" value="17:00"/>
         </insert>

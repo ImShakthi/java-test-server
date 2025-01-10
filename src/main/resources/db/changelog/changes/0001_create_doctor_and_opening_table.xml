@@ -4,8 +4,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
-    <changeSet id="0001_create_doctor_table" author="sakthivel balasubramaniam">
-        <createTable tableName="doctor">
+    <changeSet id="0001_create_doctor_and_openings_table" author="sakthivel balasubramaniam">
+        <createTable tableName="doctors">
             <column name="id" type="long" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
@@ -15,6 +15,13 @@
             <column name="last_name" type="varchar(20)">
                 <constraints nullable="false"/>
             </column>
+        </createTable>
+
+        <createTable tableName="openings">
+            <column name="id" type="long" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="doctor_id" type="long"/>
             <column name="start_time" type="time">
                 <constraints nullable="false"/>
             </column>
@@ -22,6 +29,14 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="openings"
+                baseColumnNames="doctor_id"
+                referencedTableName="doctors"
+                referencedColumnNames="id"
+                constraintName="fk_openings_doctors"/>
+
     </changeSet>
 
 </databaseChangeLog>

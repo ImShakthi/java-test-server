@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0003_create_appointments_table" author="sakthivel balasubramaniam">
+        <createTable tableName="appointments">
+            <column name="id" type="long" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(75)"/>
+            <column name="doctor_id" type="long"/>
+            <column name="start_time" type="datetime with time zone">
+                <constraints nullable="false"/>
+            </column>
+            <column name="end_time" type="datetime with time zone">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="appointments"
+                baseColumnNames="doctor_id"
+                referencedTableName="doctors"
+                referencedColumnNames="id"
+                constraintName="fk_appointments_doctors"/>
+    </changeSet>
+</databaseChangeLog>

@@ -7,5 +7,7 @@
     <include file="changes/0001_create_doctor_and_opening_table.xml" relativeToChangelogFile="true"/>
     <include file="changes/0002_insert_sample_doctor_data.xml" relativeToChangelogFile="true"/>
     <include file="changes/0003_create_appointments_table.xml" relativeToChangelogFile="true"/>
+    <include file="changes/0004_create_product_item_stock_bom.xml" relativeToChangelogFile="true"/>
+    <include file="changes/0005_insert_product_item_stock_bom.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

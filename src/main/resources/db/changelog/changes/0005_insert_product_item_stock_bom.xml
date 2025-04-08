@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0005_insert_product_item_stock_bom" author="Sakthivel Balasubramaniam">
+
+        <!--product-->
+        <insert tableName="product">
+            <column name="name" value="dinning-table"/>
+        </insert>
+        <insert tableName="product">
+            <column name="name" value="chair"/>
+        </insert>
+
+        <!--item-->
+        <insert tableName="item">
+            <column name="name" value="leg"/>
+        </insert>
+        <insert tableName="item">
+            <column name="name" value="screw"/>
+        </insert>
+        <insert tableName="item">
+            <column name="name" value="table-top"/>
+        </insert>
+        <insert tableName="item">
+            <column name="name" value="seat"/>
+        </insert>
+
+        <!--stock-->
+        <insert tableName="stock">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'leg')"/>
+            <column name="available_units" value="12"/>
+        </insert>
+        <insert tableName="stock">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'screw')"/>
+            <column name="available_units" value="12"/>
+        </insert>
+        <insert tableName="stock">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'table-top')"/>
+            <column name="available_units" value="1"/>
+        </insert>
+        <insert tableName="stock">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'seat')"/>
+            <column name="available_units" value="2"/>
+        </insert>
+
+        <!--product_bom-->
+        <insert tableName="product_bom">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'leg')"/>
+            <column name="product_id" valueComputed="(SELECT id FROM product WHERE name = 'dinning-table')"/>
+            <column name="required_item_units" value="4"/>
+        </insert>
+        <insert tableName="product_bom">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'screw')"/>
+            <column name="product_id" valueComputed="(SELECT id FROM product WHERE name = 'dinning-table')"/>
+            <column name="required_item_units" value="4"/>
+        </insert>
+        <insert tableName="product_bom">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'table-top')"/>
+            <column name="product_id" valueComputed="(SELECT id FROM product WHERE name = 'dinning-table')"/>
+            <column name="required_item_units" value="1"/>
+        </insert>
+
+        <insert tableName="product_bom">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'leg')"/>
+            <column name="product_id" valueComputed="(SELECT id FROM product WHERE name = 'chair')"/>
+            <column name="required_item_units" value="4"/>
+        </insert>
+        <insert tableName="product_bom">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'screw')"/>
+            <column name="product_id" valueComputed="(SELECT id FROM product WHERE name = 'chair')"/>
+            <column name="required_item_units" value="4"/>
+        </insert>
+        <insert tableName="product_bom">
+            <column name="item_id" valueComputed="(SELECT id FROM item WHERE name = 'seat')"/>
+            <column name="product_id" valueComputed="(SELECT id FROM product WHERE name = 'chair')"/>
+            <column name="required_item_units" value="1"/>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

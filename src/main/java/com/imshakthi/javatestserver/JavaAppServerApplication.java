@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaTestServerApplication {
+public class JavaAppServerApplication {
 
-    public static void main(final String[] args) {
-        SpringApplication.run(JavaTestServerApplication.class, args);
-    }
-
+  public static void main(final String[] args) {
+    SpringApplication.run(JavaAppServerApplication.class, args);
+  }
 }

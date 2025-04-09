@@ -1,12 +1,12 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
-#  datasource:
-#    url: jdbc:h2:file:./data/appserver
-#    username: sa
-##    password:
-#    driver-class-name: org.h2.Driver
+  #  datasource:
+  #    url: jdbc:h2:file:./data/appserver
+  #    username: sa
+  ##    password:
+  #    driver-class-name: org.h2.Driver
   liquibase:
     enabled: true
     drop-first: true

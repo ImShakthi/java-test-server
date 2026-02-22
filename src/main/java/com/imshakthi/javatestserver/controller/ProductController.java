@@ -19,9 +19,9 @@ public class ProductController {
     this.productMapper = productMapper;
   }
 
-  @GetMapping("/{product-name}")
+  @GetMapping(value = "/{product-name}", name = "Method to get product details")
   public ResponseEntity<ProductResponse> getProduct(
-      final @PathVariable("product-name") String productName) {
+      final @PathVariable(name = "product-name") String productName) {
 
     final var product = productService.findByName(productName);
 

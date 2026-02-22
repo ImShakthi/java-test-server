@@ -51,6 +51,9 @@ public class SecurityConfig {
                     // Public endpoints
                     .requestMatchers("/auth/addNewUser", "/auth/login")
                     .permitAll()
+                    .requestMatchers(
+                        "/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html", "/api-docs/**")
+                    .permitAll()
 
                     // Role-based endpoints
                     .requestMatchers(HttpMethod.GET, "/api/v1/hello")
@@ -107,7 +110,7 @@ public class SecurityConfig {
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {
     final CorsConfiguration config = new CorsConfiguration();
-    config.setAllowedOrigins(List.of("http://localhost:3000")); // only allow your frontend
+    config.setAllowedOrigins(List.of("http://localhost:8080/")); // only allow your frontend
     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     config.setAllowedHeaders(List.of("*"));
     config.setAllowCredentials(true); // required if using cookies or Authorization headers
